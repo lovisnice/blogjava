@@ -25,6 +25,7 @@ public class PostEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+    private boolean isDelete;
 
     @OneToMany(mappedBy="post")
     private List<PostImageEntity> postImages;
