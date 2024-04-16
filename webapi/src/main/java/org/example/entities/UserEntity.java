@@ -29,6 +29,9 @@ public class UserEntity {
     private String phone;
     @Column(length = 200, nullable = false)
     private String password;
+
     @OneToMany(mappedBy = "user")
     private List<UserRoleEntity> userRoles = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<UserPostEntity> userPosts = new ArrayList<>();
 }

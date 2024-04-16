@@ -35,7 +35,8 @@ public class SecurityConfiguration {
                         .requestMatchers("/rest-api-docs/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/posts").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/api/posts").permitAll() // Allow access to POST /api/posts without authentication
+                        .requestMatchers(HttpMethod.GET,"/api/posts/**").permitAll()
+                        .requestMatchers("/api/posts").permitAll() // Allow access to POST /api/posts without authentication
                         .requestMatchers("/api/posts/**").permitAll() // Require authentication for other /api/posts endpoints
 
 

@@ -25,9 +25,9 @@ public class PostController {
 
     // Endpoint to get all posts
     @GetMapping
-    public ResponseEntity<List<PostEntity>> getAll() {
-        List<PostEntity> posts = postRepository.findAll();
-        return new ResponseEntity<>(posts, HttpStatus.OK);
+    public ResponseEntity<List<PostItemDTO>> getAll() {
+        var result = postService.get();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     // Endpoint to create a new post
@@ -38,15 +38,13 @@ public class PostController {
     }
 
     // Endpoint to get a specific post by id
-    @GetMapping("/{id}")
-    public ResponseEntity<PostEntity> getPostById(@PathVariable("id") int id) {
-        PostEntity post = postRepository.findById(id)
-                .orElse(null); // Handle if post not found
-        if (post != null) {
-            return new ResponseEntity<>(post, HttpStatus.OK);
-        } else {
+    @GetMapping("/{productId}")
+    public ResponseEntity<PostItemDTO> getById(@PathVariable int productId) {
+        var result = postService.getById(productId);
+        if (result == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     // Add other endpoints like update and delete as needed

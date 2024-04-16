@@ -45,6 +45,7 @@ export const accountsSlice = createSlice({
         //провести вихід із системи
         logout: (state) => {
             deleteLocalStorage('authToken');
+            deleteLocalStorage('roles');
             state.user = null;
             state.token = null;
             state.isLogin = false;
@@ -61,6 +62,7 @@ export const accountsSlice = createSlice({
             //режим очікування
             .addCase(login.pending, (state) => {
                 state.status = Status.LOADING;
+                console.log(state.isLogin);
             })
             //реєстрація успішна - завершена
             .addCase(register.fulfilled, (state, action) => {

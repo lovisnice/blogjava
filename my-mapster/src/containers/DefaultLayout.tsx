@@ -1,26 +1,18 @@
+import {Outlet} from "react-router-dom";
+import "./style.css"
+import Header from "./Header.tsx";
+import {Footer} from "antd/lib/layout/layout";
 
-import {Layout, theme} from 'antd';
-import {Content, Header} from "antd/es/layout/layout";
 
 const DefaultLayout = () => {
-    const {
-        token: { colorBgContainer, borderRadiusLG },
-    } = theme.useToken();
     return (
-        <Layout style={{ minHeight: '100vh' , minWidth:'100vw'}}>
-            <Layout>
-                <Header style={{display: 'flex', alignItems: 'center'}}>
-                <h1>Hello world!</h1>
-                </Header>
-                <Layout
-                    style={{display: 'flex', alignItems: 'center', padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}
-                >
-                <Content>
-                    <h1>Hello world!</h1>
-                </Content>
-                </Layout>
-               </Layout>
-        </Layout>
+       <div className={"app"}>
+           <div className={"container"}>
+               <Header/>
+               <Outlet/>
+               <Footer style={{ marginTop:'150px', textAlign: 'center', bottom: "0", right: "0", left: "0"}}>Ant Design ©2023 Created by Ant UED</Footer>
+           </div>
+       </div>
     );
 };
 

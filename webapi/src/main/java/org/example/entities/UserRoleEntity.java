@@ -18,6 +18,7 @@ public class UserRoleEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_id", nullable = false)
     private UserEntity user;
+
     @Id
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="role_id", nullable = false)

@@ -4,10 +4,7 @@ import {UploadChangeParam} from "antd/es/upload";
 import {IUploadedFile, PostEntity} from "../types.ts";
 import http_common from "../../../../http_common.ts";
 import {useNavigate} from "react-router-dom";
-
-function PlusOutlined() {
-    return null;
-}
+import { PlusOutlined} from '@ant-design/icons';
 
 const PostCreatePage: React.FC = () => {
 
